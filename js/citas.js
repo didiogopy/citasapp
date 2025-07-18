@@ -129,7 +129,7 @@ if (rectificarForm) {
         .then(res => res.ok ? res.json() : Promise.reject(res))
         .then(() => {
             localStorage.setItem('mensajeCita', '¡Cita rectificada con éxito!');
-            window.location.href = './index.html';
+            window.location.href = '../index.html';
         })
         .catch(() => alert('Error al rectificar cita'));
     });

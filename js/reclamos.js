@@ -18,7 +18,7 @@ if (formReclamo) {
         .then(res => res.ok ? res.json() : Promise.reject(res))
         .then(() => {
             localStorage.setItem('mensajeReclamo', 'Su reclamo ha sido procesado');
-            window.location.href = './index.html';
+            window.location.href = '../index.html';
         })
         .catch(() => alert('Error al enviar reclamo'));
     });

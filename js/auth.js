@@ -22,7 +22,7 @@ if (loginForm) {
         .then(data => {
             localStorage.setItem('usuario', JSON.stringify(data.usuario));
             localStorage.setItem('token', data.token);
-            window.location.href = '/index.html';
+            window.location.href = '../index.html';
         })
         .catch(() => alert('Email o contraseña incorrectos'));
     });
@@ -50,7 +50,7 @@ if (registroForm) {
         .then(res => res.ok ? res.json() : Promise.reject(res))
         .then(() => {
             alert('Usuario registrado con éxito');
-            window.location.href = '/html/login.html';
+            window.location.href = '../html/login.html';
         })
         .catch(() => alert('Error al registrar usuario'));
     });

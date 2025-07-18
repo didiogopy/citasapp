@@ -64,7 +64,7 @@ if (btnConfirmar) {
         .then(res => res.ok ? res.json() : Promise.reject(res))
         .then(() => {
             localStorage.setItem('mensajeCita', '¡Tu cita fue agendada con éxito!');
-            window.location.href = '/index.html';
+            window.location.href = './index.html';
         })
         .catch(() => alert('Error al agendar cita'));
     });
@@ -85,7 +85,7 @@ if (citasContainer) {
                         <strong>Fecha:</strong> ${cita.fecha} <strong>Hora:</strong> ${cita.hora}<br>
                         <strong>Placa:</strong> ${cita.placa} <strong>Servicio:</strong> ${cita.servicio}<br>
                         <strong>Sucursal:</strong> ${cita.sucursal}
-                        <button class="btn btn-sm btn-warning mt-2" onclick="window.location.href='/html/rectificar-cita.html?id=${cita.id_cita}'">Rectificar</button>
+                        <button class="btn btn-sm btn-warning mt-2" onclick="window.location.href='./html/rectificar-cita.html?id=${cita.id_cita}'">Rectificar</button>
                     </div>
                 `).join('');
             }
@@ -129,7 +129,7 @@ if (rectificarForm) {
         .then(res => res.ok ? res.json() : Promise.reject(res))
         .then(() => {
             localStorage.setItem('mensajeCita', '¡Cita rectificada con éxito!');
-            window.location.href = '/index.html';
+            window.location.href = './index.html';
         })
         .catch(() => alert('Error al rectificar cita'));
     });

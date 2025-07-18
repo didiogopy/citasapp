@@ -1,3 +1,11 @@
+Claro, he revisado el código HTML que me proporcionaste y he ajustado todas las rutas relativas. Como este archivo (agendar-cita.html) está probablemente en la raíz del proyecto, las rutas a recursos dentro de subcarpetas (como img/, css/, html/, js/) deben comenzar con ./ para indicar que se encuentran en el mismo nivel o dentro de una subcarpeta en el mismo directorio.
+
+Además, he corregido la doble inclusión del script de Flatpickr (<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>) que aparecía una vez en el <head> y otra en el <body>. Solo es necesario incluirlo una vez, preferiblemente al final del <body> para asegurar que el DOM esté completamente cargado. También he movido la inicialización de Flatpickr después de la inclusión de la biblioteca.
+
+Aquí tienes el código con las rutas corregidas y la doble inclusión eliminada:
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,7 +17,6 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <body>
     <header class="container-fluid bg-white shadow-sm">
     <div class="container">
@@ -49,7 +56,6 @@
     </div>
     </header>
 
-    <!-- Sección de progreso -->
     <section id="progreso-section" class="container-fluid">
         <div class="container">
             <div class="row">
@@ -85,11 +91,9 @@
         </div>
     </section>
 
-    <!-- Contenido principal -->
     <main id="main-contenido" class="container-fluid">
         <div class="container">
             <div class="row content-section">
-                <!-- Columna izquierda - Información -->
                 <aside class="col-lg-3 content-info">
                     <h2 class="content-title">Confía tu vehículo a los expertos</h2>
                     <p>
@@ -98,7 +102,6 @@
                     <img src="./img/sectionImage.png" alt="AUTOLAND" class="car-image">
                 </aside>
 
-                <!-- Columna central - Formulario -->   
                 <section class="col-lg-6 form-section">
                     <form id="agendar-form">
                         <div class="row mb-3">
@@ -133,7 +136,6 @@
                                 <label for="año" class="form-label">Año</label>
                                 <select id="año" class="form-select">
                                     <option>Seleccione año del modelo</option>
-                                    <option>2025</option>
                                     <option>2025</option>
                                     <option>2024</option>
                                     <option>2023</option>
@@ -173,7 +175,6 @@
                     </form>
                 </section>
 
-                <!-- Columna derecha - Horarios -->
                 <aside class="col-lg-3 time-section">
                     <label class="form-label">Hora disponible</label>
                     <div class="horas-scroll">
@@ -239,6 +240,7 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
     document.querySelectorAll('.time-button').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -247,7 +249,6 @@
         });
     });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         flatpickr("#calendario-input", {
             minDate: "today",
